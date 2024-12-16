@@ -70,7 +70,7 @@ public class SignUpForm {
         driver.findElement(selectRecieveOffers).click();
         return this;
     }
-
+    @Step("Fill information for address")
     public SignUpForm fillAddressInfo(String firstName, String lastName, String Company, String firstaddress, String secondaddress, String country, String State, String City, String ZipCode, String MobileNumber) {
         driver.findElement(first_name).sendKeys(firstName);
         driver.findElement(last_name).sendKeys(lastName);
@@ -84,15 +84,17 @@ public class SignUpForm {
         driver.findElement(mobileNumber).sendKeys(MobileNumber);
         return this;
     }
-
+    @Step("Click on create account button after filling the data")
     public SignUpForm clickOnCreateAccountButton() {
         driver.findElement(createAccountButton).click();
         return this;
     }
+    @Step("Press continue button after signup")
     public SignUpForm pressContinueAfterSignUp() {
         driver.findElement(continueButtonAfterSignUp).click();
         return this;
     }
+    @Step("Validate Account Created  Text")
     public SignUpForm validateAccountCreatedText() {
         Assert.assertEquals(driver.findElement(accountCreatedText).getText(), "ACCOUNT CREATED!");
         return this;
