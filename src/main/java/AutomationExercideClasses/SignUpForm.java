@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import static Framework.ElementActions.click;
+import static Framework.ElementActions.selectDropdownByValue;
+
 public class SignUpForm {
     WebDriver driver;
     /// //////Locator
@@ -50,23 +53,23 @@ public class SignUpForm {
 
     @Step("Fill in the account information with valid data ")
     public SignUpForm fillAccountInfo(String password, String Day, String month, String year) {
-        driver.findElement(idGender).click();
+        click(driver,idGender);
         //fill the form Account Info
         driver.findElement(passwordField).sendKeys(password);
-        new Select(driver.findElement(selectDay)).selectByValue(Day);
-        new Select(driver.findElement(selectMonths)).selectByValue(month);
-        new Select(driver.findElement(selectingyears)).selectByValue(year);
+        selectDropdownByValue(driver,selectDay,Day);
+        selectDropdownByValue(driver,selectMonths,month);
+        selectDropdownByValue(driver,selectingyears,year);
         return this;
 
     }
     @Step("Click Check box News Letter")
     public SignUpForm selectCheckboxNewsLetter() {
-        driver.findElement(selectNewsLetter).click();
+        click(driver,selectNewsLetter);
         return this;
     }
     @Step("Click Check box offers")
     public SignUpForm selectCheckboxrOffers() {
-        driver.findElement(selectRecieveOffers).click();
+        click(driver,selectRecieveOffers);
         return this;
     }
     @Step("Fill information for address")
@@ -85,12 +88,12 @@ public class SignUpForm {
     }
     @Step("Click on create account button after filling the data")
     public SignUpForm clickOnCreateAccountButton() {
-        driver.findElement(createAccountButton).click();
+        click(driver,createAccountButton);
         return this;
     }
     @Step("Press continue button after signup")
     public SignUpForm pressContinueAfterSignUp() {
-        driver.findElement(continueButtonAfterSignUp).click();
+        click(driver,continueButtonAfterSignUp);
         return this;
     }
     @Step("Validate Account Created  Text")
