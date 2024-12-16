@@ -33,11 +33,12 @@ public SignUpLoginPages(WebDriver driver){
 
 
     /// /Action Method
-
+    @Step("Validate New User Signup Text")
     public SignUpLoginPages validateNewUserSignUpText() {
         driver.findElement(newUserSignUpText).isDisplayed();
         return this;
     }
+    @Step("Fill in Signup name , Email")
     public SignUpLoginPages fillinSignupNameEmail(String name, String email) {
         driver.findElement(nameField).sendKeys(name);
         driver.findElement(emailField).sendKeys(email);
