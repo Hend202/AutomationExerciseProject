@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import static Framework.ElementActions.click;
+
 public class SignUpLoginPages {
     WebDriver driver;
     private String url= "https://www.automationexercise.com/signup";
@@ -42,7 +44,7 @@ public SignUpLoginPages(WebDriver driver){
     public SignUpLoginPages fillinSignupNameEmail(String name, String email) {
         driver.findElement(nameField).sendKeys(name);
         driver.findElement(emailField).sendKeys(email);
-        driver.findElement(signUPButton).click();
+        click(driver,signUPButton);
         return this;
     }
 

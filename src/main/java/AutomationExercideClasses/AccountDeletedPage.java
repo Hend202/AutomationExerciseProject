@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import static Framework.ElementActions.click;
+
 public class AccountDeletedPage {
     WebDriver driver;
     private String url="https://www.automationexercise.com/delete_account";
@@ -37,7 +39,7 @@ public class AccountDeletedPage {
     }
     @Step("Click Continue Button After Deleting the account")
     public AccountDeletedPage pressContinueAfterDeleteAccount() {
-        driver.findElement(continueButtonAfterDelete).click();
+        click(driver,continueButtonAfterDelete);
         return this;
     }
 

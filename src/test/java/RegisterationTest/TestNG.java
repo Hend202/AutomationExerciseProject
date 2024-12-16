@@ -7,10 +7,9 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import jdk.jfr.Description;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
-import static Utilities.DriverFactory.initiateDriver;
+import static Framework.DriverFactory.initiateDriver;
 
 public class TestNG {
     private JsonFileManager jsonFileManager;
