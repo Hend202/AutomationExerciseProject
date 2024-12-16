@@ -1,4 +1,5 @@
 package AutomationExercideClasses;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -19,6 +20,7 @@ public HomePage(WebDriver driver){
 
 
     /// /////Action Method
+    @Step("Validate Existence on Automation Exercise website")
     public  HomePage validateExistenceOnAutomationWebsite() {
         Assert.assertEquals(driver.getTitle(), "Automation Exercise");
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationexercise.com/");

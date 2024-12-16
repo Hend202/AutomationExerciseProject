@@ -1,6 +1,7 @@
 package AutomationExercideClasses;
 
 import Utilities.JsonFileManager;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -32,6 +33,7 @@ public SignUpLoginPages(WebDriver driver){
 
 
     /// /Action Method
+
     public SignUpLoginPages validateNewUserSignUpText() {
         driver.findElement(newUserSignUpText).isDisplayed();
         return this;

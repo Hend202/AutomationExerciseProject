@@ -58,14 +58,13 @@ public class SignUpForm {
         new Select(driver.findElement(selectingyears)).selectByValue(year);
         return this;
 
-
     }
-
+    @Step("Click Check box News Letter")
     public SignUpForm selectCheckboxNewsLetter() {
         driver.findElement(selectNewsLetter).click();
         return this;
     }
-
+    @Step("Click Check box offers")
     public SignUpForm selectCheckboxrOffers() {
         driver.findElement(selectRecieveOffers).click();
         return this;
