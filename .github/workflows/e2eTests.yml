@@ -7,52 +7,6 @@ on:
   schedule:
     - cron: "00 3 * * 2,3"
   workflow_dispatch:
-    inputs:
-      TC_Class_Name:
-        description: 'Specify the name of the test class to execute'
-        required: false
-        default: 'TestNG'
-      Browser_Name_Windows:
-        description: "determine the browser on which the test cases will be executed in windows"
-        required: true
-        default: 'chrome'
-        type: choice
-        options:
-          - 'firefox'
-          - 'edge'
-          - 'chrome'
-      Browser_headless_Windows:
-        description: "Select whether to run the test cases in headless mode "
-        required: true
-        default: 'true'
-        type: choice
-        options:
-          - 'true'
-          - 'false'
-
-      Browser_Name_Ubuntu:
-        description: "determine the browser on which the test cases will be executed in Ubunto"
-        required: true
-        default: 'chrome'
-        type: choice
-        options:
-          - 'firefox'
-          - 'edge'
-          - 'chrome'
-     
-      Browser_headless_Ubuntu:
-        description: "Will the browser run TC headless on Ubuntu"
-        required: true
-        default: 'true'
-        type: choice
-        options:
-          - 'true'
-          - 'false'
-
-      CustomeInstructureUbuntu:
-        description: 'Custome Instructionsfor modifying properties -DpropertyName="value" or adding --flag '
-        required: false
-        default: ''
 
 jobs:
   E2E_Linux_Ubuntu_run:
