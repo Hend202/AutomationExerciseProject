@@ -5,14 +5,14 @@ on:
     branches:
       - master
   schedule:
-    - cron: "00 3 * * 2,3"
+    - cron: "00 2 * * *"
   workflow_dispatch:
 
 jobs:
   E2E_Linux_Ubuntu_run:
     permissions:
       checks: write
-    name: Regular Check Linux (ubuntu) machine
+    name: Regular Check Linux (ubuntu) 
     runs-on: ubuntu-latest
     steps:
       - name: Geting repo files
@@ -30,12 +30,12 @@ jobs:
           maven-version: 3.9.6
       - name: Run Tests
         continue-on-error: true
-        run: mvn -Dtest="automationexercise.test.${{ github.event.inputs.TC_Class_Name }}" test -Dbrowser="${{ github.event.inputs.Browser_Name_UbuntuMachine }}" -Dheadless=${{ github.event.inputs.Browser_headless_UbuntuMachine }} ${{ github.event.inputs.CustomeInstructureUbuntu }}
+        run: mvn -Dtest="RegisterationTest.TestNG" test -Dbrowser="chrome" -Dheadless="false" 
       - name: Allure Report
         run: mvn allure:report
       - name: Upload Allure Report
-        uses: actions/upload-artifact@v4
         continue-on-error: true
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ github.event.inputs.Browser_Name_UbuntuMachine }}_allure-results_Ubuntu
           path: target/site/allure-maven-plugin/index.html
@@ -72,12 +72,12 @@ jobs:
           maven-version: 3.9.6
       - name: Run Tests
         continue-on-error: true
-        run: mvn -Dtest="automationexercise.test.${{ github.event.inputs.TC_Class_Name }}" test -Dbrowser="${{ github.event.inputs.Browser_Name_WindowsMachine }}" -Dheadless=${{ github.event.inputs.Browser_headless_WindowsMachine }}
+        run: mvn -Dtest="RegisterationTest.TestNG" test -Dbrowser="chrome" -Dheadless="false" 
       - name: Allure Report
         run: mvn allure:report
       - name: Upload Allure Report
-        uses: actions/upload-artifact@v4
         continue-on-error: true
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ github.event.inputs.Browser_Name_WindowsMachine }}_allure-results_Windows
           path: target/site/allure-maven-plugin/index.html
