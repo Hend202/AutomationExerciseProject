@@ -1,7 +1,11 @@
 package AutomationExercideClasses;
+import Framework.ElementActions;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
+import static Framework.ElementActions.getCurrentUrl;
+import static Framework.ElementActions.getTitle;
 
 
 public class HomePage {
@@ -22,9 +26,10 @@ public HomePage(WebDriver driver){
     /// /////Action Method
     @Step("Validate Existence on Automation Exercise website")
     public  HomePage validateExistenceOnAutomationWebsite() {
-        Assert.assertEquals(driver.getTitle(), "Automation Exercise");
-        Assert.assertEquals(driver.getCurrentUrl(), "https://automationexercise.com/");
+        Assert.assertEquals(getTitle(driver), "Automation Exercise");
+        Assert.assertEquals(getCurrentUrl(driver), "https://automationexercise.com/");
         return this;
     }
+
 
 }

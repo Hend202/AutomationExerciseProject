@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import static Framework.ElementActions.click;
-import static Framework.ElementActions.selectDropdownByValue;
+import static Framework.ElementActions.*;
 
 public class SignUpForm {
     WebDriver driver;
@@ -55,7 +54,7 @@ public class SignUpForm {
     public SignUpForm fillAccountInfo(String password, String Day, String month, String year) {
         click(driver,idGender);
         //fill the form Account Info
-        driver.findElement(passwordField).sendKeys(password);
+        sendKeys(driver,passwordField,password);
         selectDropdownByValue(driver,selectDay,Day);
         selectDropdownByValue(driver,selectMonths,month);
         selectDropdownByValue(driver,selectingyears,year);
@@ -74,16 +73,16 @@ public class SignUpForm {
     }
     @Step("Fill information for address")
     public SignUpForm fillAddressInfo(String firstName, String lastName, String Company, String firstaddress, String secondaddress, String country, String State, String City, String ZipCode, String MobileNumber) {
-        driver.findElement(first_name).sendKeys(firstName);
-        driver.findElement(last_name).sendKeys(lastName);
-        driver.findElement(company).sendKeys(Company);
-        driver.findElement(address1).sendKeys(firstaddress);
-        driver.findElement(address2).sendKeys(secondaddress);
-        new Select(driver.findElement(selectCountry)).selectByValue(country);
-        driver.findElement(state).sendKeys(State);
-        driver.findElement(city).sendKeys(City);
-        driver.findElement(zipcode).sendKeys(ZipCode);
-        driver.findElement(mobileNumber).sendKeys(MobileNumber);
+        sendKeys(driver,first_name,firstName);
+        sendKeys(driver,last_name,lastName);
+        sendKeys(driver,company,Company);
+        sendKeys(driver,address1,firstaddress);
+        sendKeys(driver,address2,secondaddress);
+        selectDropdownByValue(driver,selectCountry,country);
+        sendKeys(driver,state,State);
+        sendKeys(driver,city,City);
+        sendKeys(driver,zipcode,ZipCode);
+        sendKeys(driver,mobileNumber,MobileNumber);
         return this;
     }
     @Step("Click on create account button after filling the data")
@@ -98,7 +97,7 @@ public class SignUpForm {
     }
     @Step("Validate Account Created  Text")
     public SignUpForm validateAccountCreatedText() {
-        Assert.assertEquals(driver.findElement(accountCreatedText).getText(), "ACCOUNT CREATED!");
+        Assert.assertEquals(getText(driver,accountCreatedText), "ACCOUNT CREATED!");
         return this;
     }
 

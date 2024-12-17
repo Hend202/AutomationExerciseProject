@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import static Framework.ElementActions.click;
+import static Framework.ElementActions.getText;
 
 public class AccountDeletedPage {
     WebDriver driver;
@@ -34,7 +35,7 @@ public class AccountDeletedPage {
     @Step("Validate Account Deleted Text")
     public AccountDeletedPage validateOAccountDeletedText(){
 
-        Assert.assertEquals(driver.findElement(deletedAccountText).getText(),"ACCOUNT DELETED!");
+        Assert.assertEquals(getText(driver,deletedAccountText),"ACCOUNT DELETED!");
         return this;
     }
     @Step("Click Continue Button After Deleting the account")

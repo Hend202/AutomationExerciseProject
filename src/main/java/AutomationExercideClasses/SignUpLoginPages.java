@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import static Framework.ElementActions.click;
+import static Framework.ElementActions.sendKeys;
 
 public class SignUpLoginPages {
     WebDriver driver;
@@ -42,8 +43,8 @@ public SignUpLoginPages(WebDriver driver){
     }
     @Step("Fill in Signup name , Email")
     public SignUpLoginPages fillinSignupNameEmail(String name, String email) {
-        driver.findElement(nameField).sendKeys(name);
-        driver.findElement(emailField).sendKeys(email);
+        sendKeys(driver,nameField,name);
+        sendKeys(driver,emailField,email);
         click(driver,signUPButton);
         return this;
     }
