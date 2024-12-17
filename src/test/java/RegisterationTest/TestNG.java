@@ -16,7 +16,7 @@ public class TestNG {
     WebDriver driver;
     @BeforeMethod
     public void beforeclass() {
-        driver = initiateDriver(System.getProperty("browserName"),true);
+        driver = initiateDriver(System.getProperty("browserName"), Boolean.valueOf(System.getProperty("maximizeWindow")),Boolean.valueOf(System.getProperty("headlessExecution")));
         jsonFileManager = new JsonFileManager("src/test/resources/TestDataJsonFile/TestData.json");
         navigationToUrl();
 
