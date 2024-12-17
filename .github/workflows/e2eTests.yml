@@ -30,7 +30,7 @@ jobs:
           maven-version: 3.9.6
       - name: Run Tests
         continue-on-error: true
-        run: mvn -Dtest="RegisterationTest.TestNG" test -Dbrowser="chrome" -Dheadless="true" 
+        run: mvn -Dtest="RegisterationTest.TestNG" test -DbrowserName="chrome" -DheadlessExecution="true" 
       - name: Allure Report
         run: mvn allure:report
       - name: Upload Allure Report
@@ -72,7 +72,7 @@ jobs:
           maven-version: 3.9.6
       - name: Run Tests
         continue-on-error: true
-        run: mvn -Dtest="RegisterationTest.TestNG" test -Dbrowser="chrome" -Dheadless="false" 
+        run: mvn -Dtest="RegisterationTest.TestNG" test -DbrowserName="chrome" -DheadlessExecution="true" 
       - name: Allure Report
         run: mvn allure:report
       - name: Upload Allure Report
