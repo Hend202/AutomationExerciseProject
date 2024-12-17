@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: "00 2 * * *"
+    - cron: "00 16 * * *"
   workflow_dispatch:
 
 jobs:
@@ -30,14 +30,14 @@ jobs:
           maven-version: 3.9.6
       - name: Run Tests
         continue-on-error: true
-        run: mvn -Dtest="RegisterationTest.TestNG" test -Dbrowser="chrome" -Dheadless="false" 
+        run: mvn -Dtest="RegisterationTest.TestNG" test -Dbrowser="chrome" -Dheadless="true" 
       - name: Allure Report
         run: mvn allure:report
       - name: Upload Allure Report
         continue-on-error: true
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ github.event.inputs.Browser_Name_UbuntuMachine }}_allure-results_Ubuntu
+          name: chrome
           path: target/site/allure-maven-plugin/index.html
       
       - name: Publish Report
@@ -79,7 +79,7 @@ jobs:
         continue-on-error: true
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ github.event.inputs.Browser_Name_WindowsMachine }}_allure-results_Windows
+          name: Allure Report
           path: target/site/allure-maven-plugin/index.html
       - name: Publish Report
         continue-on-error: true
