@@ -11,7 +11,7 @@ on:
       TC_Class_Name:
         description: 'Specify the name of the test class to execute'
         required: false
-        default: 'TC1RegisterUser'
+        default: 'TestNG'
       Browser_Name_Windows:
         description: "determine the browser on which the test cases will be executed in windows"
         required: true
